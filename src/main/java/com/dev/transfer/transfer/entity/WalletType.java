@@ -40,12 +40,14 @@ public class WalletType {
 
         Enum(Long id, String description) {
             this.description = description;
+            this.id = id;
         }
 
         private String description;
+        private Long id;
 
         public WalletType get () {
-            return new WalletType(0L, description);
+            return new WalletType(id, description);
         }
     }
 }

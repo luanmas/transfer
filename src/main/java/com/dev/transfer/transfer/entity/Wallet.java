@@ -27,11 +27,19 @@ public class Wallet {
     @Column(name = "balance")
     private BigDecimal balance = BigDecimal.ZERO;
 
-    @JoinColumn(name = "wallet_type_id")
     @ManyToOne
+    @JoinColumn(name = "wallet_type_id")
     private WalletType walletType;
 
     public Wallet() {
+    }
+
+    public Wallet(String fullName,  String email, String cpfCnpj, String password, WalletType.Enum walletType) {
+        this.fullName = fullName;
+        this.email = email;
+        this.cpfCnpj = cpfCnpj;
+        this.password = password;
+        this.walletType = walletType.get();
     }
 
     public BigDecimal getBalance() {
